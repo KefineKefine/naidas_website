@@ -1,0 +1,202 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 240 10% 3.9%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    
+    --radius: 0.5rem;
+  }
+  
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-mono;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  /* Header navigation styling */
+  .nav-link {
+    @apply relative px-3 py-2 transition-all duration-300 ease-out;
+  }
+  
+  .nav-link::after {
+    @apply content-[''] absolute bottom-0 left-0 w-0 h-[2px] bg-primary transition-all duration-300 ease-out;
+  }
+  
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+  
+  .nav-link.active::after {
+    @apply w-full;
+  }
+  
+  /* Button styles */
+  .btn {
+    @apply relative overflow-hidden inline-flex items-center justify-center px-6 py-3 rounded-md font-medium transition-all duration-300 ease-out;
+  }
+  
+  .btn::before {
+    @apply content-[''] absolute inset-0 opacity-0 transition-opacity duration-300 ease-out z-0;
+  }
+  
+  .btn:hover::before {
+    @apply opacity-100;
+  }
+  
+  .btn-content {
+    @apply relative z-10;
+  }
+  
+  /* Radial gradient presets */
+  .radial-gradient-blue {
+    background: radial-gradient(circle at center, rgba(224, 242, 254, 1) 0%, rgba(186, 230, 253, 0) 70%);
+  }
+  
+  .radial-gradient-purple {
+    background: radial-gradient(circle at center, rgba(237, 233, 254, 1) 0%, rgba(221, 214, 254, 0) 70%);
+  }
+  
+  .radial-gradient-amber {
+    background: radial-gradient(circle at center, rgba(254, 243, 199, 1) 0%, rgba(253, 230, 138, 0) 70%);
+  }
+  
+  .radial-gradient-emerald {
+    background: radial-gradient(circle at center, rgba(209, 250, 229, 1) 0%, rgba(167, 243, 208, 0) 70%);
+  }
+  
+  /* Text box with radial gradient */
+  .text-box {
+    @apply relative p-6 rounded-lg backdrop-blur-sm border border-white/20;
+  }
+  
+  .text-box::before {
+    @apply content-[''] absolute inset-0 -z-10 opacity-30 rounded-lg;
+  }
+  
+  .text-box.blue::before {
+    @apply radial-gradient-blue;
+  }
+  
+  .text-box.purple::before {
+    @apply radial-gradient-purple;
+  }
+  
+  .text-box.amber::before {
+    @apply radial-gradient-amber;
+  }
+  
+  .text-box.emerald::before {
+    @apply radial-gradient-emerald;
+  }
+  
+  /* Button with radial gradient */
+  .btn-gradient {
+    @apply btn bg-white/5 backdrop-blur-sm border border-white/20;
+  }
+  
+  .btn-gradient::before {
+    @apply rounded-md;
+  }
+  
+  .btn-gradient.blue::before {
+    @apply radial-gradient-blue;
+  }
+  
+  .btn-gradient.purple::before {
+    @apply radial-gradient-purple;
+  }
+  
+  .btn-gradient.amber::before {
+    @apply radial-gradient-amber;
+  }
+  
+  .btn-gradient.emerald::before {
+    @apply radial-gradient-emerald;
+  }
+  
+  /* Page transition */
+  .page-transition-enter {
+    @apply opacity-0;
+  }
+  
+  .page-transition-enter-active {
+    @apply opacity-100 transition-opacity duration-300;
+  }
+  
+  .page-transition-exit {
+    @apply opacity-100;
+  }
+  
+  .page-transition-exit-active {
+    @apply opacity-0 transition-opacity duration-300;
+  }
+}
+
+@layer utilities {
+  /* Hover animations */
+  .hover-lift {
+    @apply transition-transform duration-300 ease-out hover:-translate-y-1;
+  }
+  
+  .hover-scale {
+    @apply transition-transform duration-300 ease-out hover:scale-105;
+  }
+  
+  .hover-rotate {
+    @apply transition-transform duration-300 ease-out hover:rotate-3;
+  }
+  
+  /* Text animations */
+  .text-shimmer {
+    @apply relative;
+    background: linear-gradient(to right, #000, #333, #000);
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shimmer 3s linear infinite;
+  }
+  
+  @keyframes shimmer {
+    to {
+      background-position: 200% center;
+    }
+  }
+}
