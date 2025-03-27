@@ -1,0 +1,65 @@
+body {
+    font-family: monospace;
+    margin: 0;
+    padding: 0;
+    background-color: #14131d;
+}
+
+header {
+    background: #38364b;
+    color: white;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.panel {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    background: radial-gradient(circle, #9425fc, #55208f);
+    color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+}
+
+.panel:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+    filter: brightness(1.2);
+}
+
+.panel2 {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 5px;
+    border-radius: 10px;
+    text-align: center;
+    background: radial-gradient(circle, #6f3aa1, #2a0f46);
+    color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+}
+
+.panel2:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+    filter: brightness(1.2);
+}
