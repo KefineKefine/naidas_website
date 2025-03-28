@@ -208,6 +208,19 @@ img {
     height: auto;
 }
 
+.enlarge:hover {
+    transform: scale(1.03);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.brighten:hover {
+    filter: brightness(1.2);
+}
+
+img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+}
+
 .panel {
     padding: 20px;
     border-radius: 15px;
@@ -216,12 +229,6 @@ img {
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
     max-width: 400px; /* Optional: Prevents content from getting too wide */
-}
-
-.panel:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
-    filter: brightness(1.2);
 }
 
 .panel2 {
@@ -236,12 +243,6 @@ img {
     transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
 }
 
-.panel2:hover {
-    transform: scale(1.03);
-    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
-    filter: brightness(1.2);
-}
-
 .panel3 {
     background-image: radial-gradient(100% 100% at 100% 0, rgba(0, 0, 0, 0.5) 0,rgba(0, 0, 0, 0.5) 100%);
     color: rgb(193, 191, 255);
@@ -253,12 +254,6 @@ img {
     padding: 2%;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
-}
-
-.panel3:hover {
-    transform: scale(1.03);
-    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
-    filter: brightness(1.2);
 }
 
 .underline-hover {
