@@ -4,6 +4,18 @@
 
 }
 
+/* Define animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px); /* Start lower */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Move to normal position */
+    }
+}
+
 @keyframes pan {
     0% {
       background-position: 0% 0%;
@@ -19,13 +31,19 @@
     }
     
     50% {
-      scale: 1 1.5;
+      scale: 1 1.2;
     }
     
     to {
-      rotate: 360deg;
+      rotate: 720deg;
     }
   }
+
+main {
+    opacity: 0; /* Initially hidden */
+    transform: translateY(30px); /* Start lower */
+    animation: fadeInUp 0.8s ease-out forwards;
+}
 
 #tri-container {
     background: radial-gradient(rgb(var(#15151e)), rgb(var(#181821)));
@@ -79,12 +97,12 @@
 }
 
 #blur {
-height: 100%;
-width: 100%;
-position: absolute;
-z-index: -1;
-backdrop-filter: blur(12vmax);
-opacity: 0.3;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+    backdrop-filter: blur(12vmax);
+    opacity: 0.7;
 }
 
 
@@ -104,7 +122,7 @@ html::-webkit-scrollbar {
     display: none;
 }
 
-header {
+.header-design {
     background:
         linear-gradient(to left, #000000, #121118),
         linear-gradient(transparent 40%, #000000);
@@ -131,7 +149,7 @@ nav ul li {
     color: white;
     text-decoration: none;
     font-size: 18px;
-    
+    padding-left: 3%;
 }
 
 .nav-item {
@@ -139,7 +157,8 @@ nav ul li {
     position: relative;
     text-decoration: none;
     color: white; /* Adjust text color as needed */
-    padding-bottom: 5px;
+    padding: 5px;
+    margin: 1%;
     overflow: hidden;
     transition: opacity 0.3s ease;
 }
@@ -152,16 +171,35 @@ nav ul li {
     opacity: 1;
 }
 
+.container {
+    display: flex;
+    flex-direction: column;  /* Stacks elements vertically */
+    justify-content: center; /* Centers vertically */
+    align-items: center;      /* Centers horizontally */
+    text-align: center;
+}
+
+.container2 {
+    display: flex;
+    flex-direction: row;  /* Stacks elements vertically */
+    justify-content: center; /* Centers vertically */
+    align-items: center;      /* Centers horizontally */
+    text-align: center;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 .panel {
-    max-width: 600px;
-    margin: 50px auto;
     padding: 20px;
     border-radius: 15px;
-    text-align: center;
     background: radial-gradient(circle, #9425fc, #55208f);
     color: white;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+    max-width: 400px; /* Optional: Prevents content from getting too wide */
 }
 
 .panel:hover {
@@ -171,9 +209,9 @@ nav ul li {
 }
 
 .panel2 {
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 5px;
+    
+    margin: 1% auto;
+    padding: 20px;
     border-radius: 10px;
     text-align: center;
     background: radial-gradient(circle, #6f3aa1, #2a0f46);
@@ -183,7 +221,26 @@ nav ul li {
 }
 
 .panel2:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+    filter: brightness(1.2);
+}
+
+.panel3 {
+    background-image: radial-gradient(100% 100% at 100% 0, rgba(0, 0, 0, 0.5) 0,rgba(0, 0, 0, 0.5) 100%);
+    color: rgb(193, 191, 255);
+    text-align: center;
+    align-self: center;
+    border-radius: 10px;
+    outline: dotted;
+    outline-color: #000d433c;
+    padding: 2%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+}
+
+.panel3:hover {
+    transform: scale(1.03);
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
     filter: brightness(1.2);
 }
