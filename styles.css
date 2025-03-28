@@ -45,14 +45,14 @@ main {
     animation: fadeInUp 0.8s ease-out forwards;
 }
 
-#tri-container {
+#scrolling-pattern-container {
     background: radial-gradient(rgb(var(#15151e)), rgb(var(#181821)));
     overflow: hidden;
     position: relative;
     min-height: 100%;
 }
 
-.tri-gradient {
+.scrolling-pattern-gradient {
     background: radial-gradient(circle, transparent 0%, #0c0c11);
     position:absolute;
     left: 0px;
@@ -63,7 +63,7 @@ main {
     z-index: -3;
 }
 
-.tri {
+.scrolling-pattern {
     background-image: url("assets/triangle-pattern.png");
     background-size: 5%;
     animation: pan var(--tri-pan-speed, 180s) linear infinite;
@@ -78,6 +78,22 @@ main {
     opacity: 1;
     will-change: background-position;
     filter: blur(2px);
+}
+
+.triangle {
+    background-image: url("assets/scrolling-patterns/triangle-pattern.png");
+}
+
+.heart {
+    background-image: url("assets/scrolling-patterns/heart-pattern.png");
+}
+
+.star {
+    background-image: url("assets/scrolling-patterns/star-pattern.png");
+}
+
+.comment {
+    background-image: url("assets/scrolling-patterns/comment-pattern.png");
 }
 
 #blob {
