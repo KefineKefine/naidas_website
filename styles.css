@@ -39,11 +39,7 @@
     }
   }
 
-main {
-    opacity: 0; /* Initially hidden */
-    transform: translateY(30px); /* Start lower */
-    animation: fadeInUp 0.8s ease-out forwards;
-}
+
 
 #scrolling-pattern-container {
     background: radial-gradient(rgb(var(#15151e)), rgb(var(#181821)));
@@ -65,7 +61,7 @@ main {
 
 .scrolling-pattern {
     background-image: url("assets/triangle-pattern.png");
-    background-size: 5%;
+    background-size: 10%;
     animation: pan var(--tri-pan-speed, 180s) linear infinite;
     position: absolute;
     left: 50%;
@@ -77,7 +73,7 @@ main {
     min-width: 1200px;
     opacity: 1;
     will-change: background-position;
-    filter: blur(2px);
+    filter: blur(1px);
 }
 
 .triangle {
@@ -105,9 +101,9 @@ main {
     top: 50%;
     translate: -50% -50%;
     border-radius: 50%;
-    background: linear-gradient(to right, rgb(127, 0, 144), rgb(226, 211, 255));
+    background: linear-gradient(to right, rgb(74, 7, 83), rgb(161, 150, 183));
     animation: rotate 20s infinite;
-    opacity: 0.1;
+    opacity: 0.2;
     filter: blur(100px);
     z-index: -2;
 }
@@ -136,6 +132,16 @@ body {
 
 html::-webkit-scrollbar {
     display: none;
+}
+
+main {
+    opacity: 0; /* Initially hidden */
+    transform: translateY(30px); /* Start lower */
+    animation: fadeInUp 0.8s ease-out forwards;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: min(80%);
 }
 
 .header-design {
@@ -221,14 +227,27 @@ img {
     transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
 }
 
+.flexbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .panel {
-    padding: 20px;
+    padding: 50px;
     border-radius: 15px;
-    background: radial-gradient(circle, #9425fc, #55208f);
+    background-image: radial-gradient(100% 100% at 100% 0, #9425fc7a 0,#56208f83 100%);
     color: white;
+    outline: dotted;
+    outline-width: 2px;
+    outline-offset: 5px;
+    outline-color: #5e4a68;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
-    max-width: 400px; /* Optional: Prevents content from getting too wide */
+    width: min(800px, 90%);; /* Optional: Prevents content from getting too wide */
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
 }
 
 .panel2 {
@@ -247,13 +266,24 @@ img {
     background-image: radial-gradient(100% 100% at 100% 0, rgba(0, 0, 0, 0.5) 0,rgba(0, 0, 0, 0.5) 100%);
     color: rgb(193, 191, 255);
     text-align: center;
-    align-self: center;
     border-radius: 10px;
     outline: dotted;
-    outline-color: #000d433c;
+    outline-color: #0000003c;
     padding: 2%;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: min(400px, 50%);
     transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+}
+
+.gradient-text {
+    background: radial-gradient(circle, rgb(255, 255, 255), rgb(231, 202, 255));
+    background-clip: text;
+    color: transparent;
+}
+
+.grand-text {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: min(60px);
 }
 
 .underline-hover {
@@ -271,7 +301,7 @@ img {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 2px; /* Adjust thickness of the underline */
+    height: 1px; /* Adjust thickness of the underline */
     background-color: white; /* Adjust underline color */
     transform: scaleX(0);
     transform-origin: left;
@@ -285,6 +315,6 @@ img {
 
 .underline-hover:not(:hover)::after {
     transform: scaleX(0);
-    transform-origin: right;
+    transform-origin: left;
 }
 
