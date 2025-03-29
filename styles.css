@@ -8,13 +8,28 @@
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(30px); /* Start lower */
+        transform: translateY(20px); /* Start lower */
     }
     to {
         opacity: 1;
         transform: translateY(0); /* Move to normal position */
     }
 }
+
+@keyframes fadeInBlob {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.2;
+    }
+}
+
+@keyframes fast-pan {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 0% 1%; }
+    100% { background-position: 0% 0%; }
+  }
 
 @keyframes pan {
     0% {
@@ -60,9 +75,7 @@
 }
 
 .scrolling-pattern {
-    background-image: url("assets/triangle-pattern.png");
     background-size: 10%;
-    animation: pan var(--tri-pan-speed, 180s) linear infinite;
     position: absolute;
     left: 50%;
     top: 0px;
@@ -74,6 +87,12 @@
     opacity: 1;
     will-change: background-position;
     filter: blur(1px);
+  
+    /* Step 1: Fast pan (only 0.5s, with gradual ease-out) */
+    animation: fast-pan 0.5s ease-in-out 1;
+  
+    /* Step 2: Normal pan starts after 0.5s */
+    animation: fast-pan 0.5s ease-in-out 1, pan var(--tri-pan-speed, 180s) linear infinite 0.5s;
 }
 
 .triangle {
@@ -102,7 +121,7 @@
     translate: -50% -50%;
     border-radius: 50%;
     background: linear-gradient(to right, rgb(74, 7, 83), rgb(161, 150, 183));
-    animation: rotate 20s infinite;
+    animation: rotate 20s infinite, fadeInBlob 1.2s ease-out forwards;
     opacity: 0.2;
     filter: blur(100px);
     z-index: -2;
@@ -127,7 +146,6 @@ body {
     overflow: auto;
     -ms-overflow-style: none; /* Hide scrollbar in IE and Edge */
     scrollbar-width: none; /* Hide scrollbar in Firefox */
-    
 }
 
 html::-webkit-scrollbar {
@@ -139,8 +157,10 @@ main {
     transform: translateY(30px); /* Start lower */
     animation: fadeInUp 0.8s ease-out forwards;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
+    gap:20px;
+    flex-wrap: wrap;
     height: min(80%);
 }
 
@@ -229,25 +249,22 @@ img {
 
 .flexbox {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
 }
 
 .panel {
     padding: 50px;
     border-radius: 15px;
-    background-image: radial-gradient(100% 100% at 100% 0, #9425fc7a 0,#56208f83 100%);
+    background-image: radial-gradient(100% 100% at 100% 0, #c588ff2e 0,#9a45f53f 100%);
     color: white;
-    outline: dotted;
-    outline-width: 2px;
-    outline-offset: 5px;
-    outline-color: #5e4a68;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
-    width: min(800px, 90%);; /* Optional: Prevents content from getting too wide */
+    width: min(300px, 20%);; /* Optional: Prevents content from getting too wide */
     display: inline-block;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
+    text-align: center;
 }
 
 .panel2 {
@@ -276,7 +293,7 @@ img {
 }
 
 .gradient-text {
-    background: radial-gradient(circle, rgb(255, 255, 255), rgb(231, 202, 255));
+    background: radial-gradient(circle, rgb(233, 206, 255), rgb(212, 159, 255));
     background-clip: text;
     color: transparent;
 }
@@ -284,6 +301,7 @@ img {
 .grand-text {
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: min(60px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
 }
 
 .underline-hover {
