@@ -1,6 +1,6 @@
 
 :root {
-    --tri-pan-speed: 180s;
+    --tri-pan-speed: 80s;
 
 }
 
@@ -27,7 +27,7 @@
 
 @keyframes fast-pan {
     0% { background-position: 0% 0%; }
-    50% { background-position: 0% 1%; }
+    50% { background-position: 0% 0.5%; }
     100% { background-position: 0% 0%; }
   }
 
@@ -111,6 +111,11 @@
     background-image: url("assets/scrolling-patterns/comment-pattern.png");
 }
 
+.eril {
+    background-image: url("assets/ErilFace.png");
+    opacity: 1;
+}
+
 #blob {
     background-color: white;
     height: 50vmax;
@@ -146,6 +151,7 @@ body {
     overflow: auto;
     -ms-overflow-style: none; /* Hide scrollbar in IE and Edge */
     scrollbar-width: none; /* Hide scrollbar in Firefox */
+    
 }
 
 html::-webkit-scrollbar {
@@ -154,14 +160,26 @@ html::-webkit-scrollbar {
 
 main {
     opacity: 0; /* Initially hidden */
-    transform: translateY(30px); /* Start lower */
+    transform: translateY(10%); /* Start lower */
     animation: fadeInUp 0.8s ease-out forwards;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    gap:20px;
     flex-wrap: wrap;
     height: min(80%);
+}
+
+.centered-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    background:
+        linear-gradient(to left, #00000055, #12111865);
+    background-blend-mode:darken;
+    height: 100%;
+    border-radius: 15px;
+    padding: 20px;
 }
 
 .header-design {
@@ -171,6 +189,17 @@ main {
     background-blend-mode:darken;
     color: white;
     padding: 10px 0;
+    
+}
+
+.footer-design {
+    background:
+        linear-gradient(to left, #000000, #121118),
+        linear-gradient(transparent 40%, #000000);
+    background-blend-mode:darken;
+    color: white;
+    width: 100%;
+    height: 10%;
     
 }
 
@@ -251,44 +280,53 @@ img {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    
 }
 
 .panel {
-    padding: 50px;
+    padding: 25px;
     border-radius: 15px;
-    background-image: radial-gradient(100% 100% at 100% 0, #c588ff2e 0,#9a45f53f 100%);
-    color: white;
+    background-image: radial-gradient(100% 100% at 100% 0, #3d2a4f2e 0,#3c1b5f3f 100%);
+    color: rgba(255, 255, 255, 0);
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
-    width: min(300px, 20%);; /* Optional: Prevents content from getting too wide */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease, color 0.2s ease;
+    width: 300px;
+    height: 190px;
     display: inline-block;
     justify-content: space-evenly;
     align-items: center;
-    text-align: center;
+    text-align: left;
+
+}
+
+.panel:hover {
+    background-image: radial-gradient(100% 100% at 100% 0, #c588ff2e 0,#9a45f53f 100%);
+    color: white;
 }
 
 .panel2 {
-    
-    margin: 1% auto;
     padding: 20px;
-    border-radius: 10px;
-    text-align: center;
+    border-radius: 15px;
+    text-align: left;
     background: radial-gradient(circle, #6f3aa1, #2a0f46);
     color: white;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
     transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+    display: inline-block;
+    justify-content: space-evenly;
 }
 
 .panel3 {
+    padding: 20px;
     background-image: radial-gradient(100% 100% at 100% 0, rgba(0, 0, 0, 0.5) 0,rgba(0, 0, 0, 0.5) 100%);
     color: rgb(193, 191, 255);
-    text-align: center;
+    text-align: left;
     border-radius: 10px;
     outline: dotted;
     outline-color: #0000003c;
-    padding: 2%;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    width: min(400px, 50%);
+    max-width: 300px;
     transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
 }
 
