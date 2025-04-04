@@ -187,6 +187,8 @@ main {
     align-items: center;
     flex-wrap: wrap;
     height: min(80%);
+    will-change: transform;
+    overflow: auto;
 }
 
 .centered-wrapper {
@@ -201,6 +203,8 @@ main {
     border-radius: 15px;
     padding: 20px;
     gap: 20px;
+    will-change: transform;
+    overflow: auto;
 }
 
 .header-design {
@@ -318,6 +322,8 @@ img {
     #button-container {
         visibility: hidden;
     }
+
+    
 }
 
 #rando-text {}
@@ -402,7 +408,7 @@ img {
     align-items: top;
     align-content: top;
     text-align: left;
-
+    overflow: none;
 }
 
 .panel a {
