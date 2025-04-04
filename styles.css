@@ -300,7 +300,25 @@ img {
 
 #button-container {}
 
-#beside-home-img-container {}
+
+
+#beside-home-img-container {
+    
+}
+
+#to-change {
+    display: flex;
+}
+
+@media (max-width: 650px) {
+    #to-change {
+        display: inline-block;
+    }
+
+    #button-container {
+        visibility: hidden;
+    }
+}
 
 #rando-text {}
 
@@ -335,9 +353,7 @@ img {
   display: inline-flex;
   font-family: "JetBrains Mono",monospace;
   justify-content: center;
-  line-height: 1;
-  list-style: none;
-  overflow: hidden;
+  line-height: 1;   
   padding: 20px;
   position: relative;
   text-align: left;
@@ -347,7 +363,7 @@ img {
   -webkit-user-select: none;
   touch-action: manipulation;
   white-space: nowrap;
-  will-change: box-shadow,transform;
+  will-change: box-shadow,transform, opacity;
   font-size: 18px;
   width: 10vw;
   height: 10vh;
